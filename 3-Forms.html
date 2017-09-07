@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Input types, select, datalist, submitting, validation, file upload, FormData API </title>
+</head>
+<body>
+
+    <form method="get" action="index.html" id="formId">
+
+        текст
+
+            <input type="text" name="text" value="Tom" maxlength="10" placeholder="placeholder" readonly disabled  required size="18" dirname="dir" autofocus list="phonesList"/>
+            dirname: показывает направление текста (при отправке поле будет: test:Tom, dir:"ltr")
+            maxlength: максимально допустимое количество символов в текстовом поле
+            placeholder: устанавливает текст, который по умолчанию отображается в текстовом поле
+            readonly: делает текстовом поле доступным только для чтения
+            required: указывает, что текстовое поле обязательно должно иметь значение
+            size: устанавливает ширину текстового поля в видимых символах
+            value: устанавливает значение по умолчанию в текстовом поле
+
+            autofocus: ставит автофокус при открытии страницы
+            list: содержит ссылку на элемент datalist, который определяет набор значений, появляющихся в виде подсказки при вводе в текстовое поле
+            <datalist id="phonesList">
+                <option value="iPhone 6S" label="54000"/>
+                <option value="Lumia 950">35000</option>
+                <option value="Nexus 5X"/>
+            </datalist>
+
+
+            <label for="password">Пароль: </label> клик по лейблу переведет фокус на инпут с id = password
+            <input type="password" name="password" id="password"/>
+
+            <input type = "search" name = "search"> обычное текстовое поле
+
+            <textarea rows = "5" cols = "50" name = "textarea">asdasdasdasd</textarea>
+
+
+        числа
+
+            <input type="number" name="number" min="4" max="10" step="2" list="numbs"/>
+            step: значение, на которое будет увеличиваться число в поле
+            <datalist id="numbs">
+                <option value="8" label="восемь">
+                <option value="4" label="четыре">
+                <option value="6" label="шесть">
+            </datalist>
+
+            <input type="range" name="range" min="4" max="10" step="2"/>
+
+
+
+        выбор (чекбоксы)
+
+            <input type = "checkbox" name = "checkbox" value = "on" checked>
+
+            <input type = "radio" name = "radio" value = "maths" checked>
+            <input type = "radio" name = "radio" value = "physics">
+
+            <select name = "select" multiple>
+                multiple - allows a user to select multiple items from the menu.
+                <optgroup label="Apple">
+                    <option value="iphone 6s" selected>iPhone 6S</option>
+                    <option value="iphone 6s plus">iPhone 6S Plus</option>
+                    <option value="iphone 5se">iPhone 5SE</option>
+                </optgroup>
+                <optgroup label="Microsoft">
+                    <option value="lumia 950">Lumia 950</option>
+                    <option value="lumia 950 xl">Lumia 950 XL</option>
+                    <option value="lumia 650">Lumia 650</option>
+                </optgroup>
+            </select>
+
+
+        телефон емейл ссылка
+
+            <input type="email" placeholder="user@gmail.com" id="email" name="email"/>
+            <input type="url" id="url" name="url"/>
+            <input type="tel" placeholder="(XXX)-XXX-XXXX" id="phone" name="phone"/>
+            pattern: определяет шаблон, которому должен соответствовать вводимый текст
+
+
+        спец инпуты
+
+            <input type="color" id="favcolor" name="favcolor" list="colors"/> выбор цвета
+            <datalist id="colors">
+                <option value="#0000FF" label="blue">
+                <option value="#008000" label="green">
+                <option value="#ff0000" label="red">
+            </datalist>
+
+
+            <input type = "file" name = "file" accept = "image/*" /> загрузка файла
+                accept: устанавливает тип файл, которые допустимы для выбора
+                multiple: позволяет выбирать множество файлов
+                required: требует обязательной установки файла
+
+            <input type = "hidden" name = "hidden" value = "10" /> спрятаный инпут
+
+
+
+        дата и время
+            <input type="datetime-local" id="localdate" name="date"/>
+            <input type="date" name="date"/>
+            <input type="week" name="week" id="week" />
+            <input type="month" id="month" name="month"/>
+            <input type="time" id="time" name="time"/>
+            datetime-local: устанавливает дату и время
+            date: устанавливает дату
+            month: устанавливает текущий месяц и год
+            time: устанавливает время
+            week: устанавливает текущую неделю
+
+
+
+        кнопки
+
+            <input type = "submit" name = "submit" value = "Submit" />This creates a button that automatically submits a form.
+            <input type = "reset" name = "reset"  value = "Reset" />This creates a button that automatically resets form controls to their initial values.
+            <input type = "button" name = "button" value = "OK" />This creates a button that is used to trigger a client-side script when the user clicks that button.
+            <input type = "image" name = "imagebutton" src = "/html/images/logo.png" />This creates a clickable button but we can use an image as background of the button.
+
+
+
+            <button type="submit" formmethod="get" formaction="index.html" form=formId>Отправить</button>
+            form: определяет форму, за которой закреплена кнопка отправки
+            formaction: устанавливает адрес, на который отправляется форма. Если у элемента form задан атрибут action, то он переопределяется
+            formenctype: устанавливает формат отправки данных. Если у элемента form установлен атрибут enctype, то он переопределяется
+            formmethod: устанавливает метод отправки формы (post или get). Если у элемента form установлен атрибут method, то он переопределяется
+            <button type="reset">Отмена</button>
+            <button type="button">button</button>
+
+    </form>
+валидация формы:
+
+    required: требует обязательного ввода значения. Для элементов textarea, select,
+    input (с типом text, password, checkbox, radio, file, datetime-local, date, month, time, week, number, email, url, search, tel)
+
+    min и max: минимально и максимально допустимые значения. Для элемента input с типом datetime-local, date, month, time, week, number, range
+    pattern: задает шаблон, которому должны соответствовать вводимые данные. Для элемента input с типом text, password, email, url, search, tel
+
+
+
+FormData Api
+
+    <form name="test">
+        <input type="text" name="code" value="12345">
+        <input type="submit" value="Отправить">
+    </form>
+
+
+    testForm = document.forms.test;
+
+    var formData = new FormData(testForm)
+
+
+    добавление нового поля в formData
+        formData.append(name, value, filename)
+            filename - Необязательный Имя файла которое будет отправлено серверу (USVString), когда Blob или File прошел проверку как второй параметр
+        Разница между FormData.set и append() в том, что если заданный ключ уже существует,
+        FormData.set заменит данные в нем на новые, а append() добавит новое значение к остальным в конец.
+    удаление елемента
+        formData.delete(name);
+    Получение значения элемента
+        formData.get(name);
+    Проверка на наличие определенного элемента
+        formData.has(name)
+    Изменение существующего элемента
+        formData.set(name, value, filename);
+
+
+    <script>
+        var formData = new FormData();
+
+        formData.append("username", "Groucho");
+        formData.append("accountnum", 123456); // number 123456 is immediately converted to a string "123456"
+
+        // HTML file input, chosen by user
+        formData.append("userfile", fileInputElement.files[0]);
+
+        // JavaScript file-like object
+        var content = '<a id="a"><b id="b">hey!</b></a>'; // the body of the new file...
+        var blob = new Blob([content], { type: "text/xml"});
+
+        formData.append("webmasterfile", blob);
+
+        var request = new XMLHttpRequest();
+        request.open("POST", "http://foo.com/submitform.php");
+        request.send(formData);
+    </script>
+</body>
+</html>

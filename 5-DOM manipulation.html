@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nodes vs elements, createElement vs innerHTML, querySelectorAll </title>
+</head>
+<body>
+
+Nodes vs elements
+
+    Прямо от Node наследуют текстовые узлы Text, комментарии Comment и элементы Element.
+
+    Элементы Element – это ещё не HTML-элементы, а более общий тип, который используется
+        в том числе в XML. От него наследует SVGElement для SVG-графики и, конечно, HTMLElement.
+
+    От HTMLElement уже наследуют разнообразные узлы HTML:
+        Для <input> – HTMLInputElement
+        Для <body> – HTMLBodyElement
+        Для <a> – HTMLAnchorElement… и так далее.
+
+
+
+    иерархия наследования:
+                                                                                        NODE
+               /                                                                              |                                                                   \
+       TEXT                                                                         Element                                                              COMMENT
+                                                                                                |                      \
+                                                                                        HTMLElement        SVGElement
+                                                                                                |
+                                                                                    все HTML елементы
+
+
+
+
+    alert( document.body instanceof HTMLBodyElement ); // true
+    alert( document.body instanceof HTMLElement ); // true
+    alert( document.body instanceof Element ); // true
+    alert( document.body instanceof Node ); // true
+
+    DOM-узлы – обычные JavaScript-объекты. Их классы заданы в прототипном стиле.
+
+    nodeType
+        Как правило, мы работаем всего с двумя типами узлов:
+
+        Элемент.
+        Текстовый узел.
+        всего их 12
+
+    Свойство nodeName определено для любых узлов Node, для элементов оно равно tagName, а для не-элементов обычно содержит строку с типом узла
+    alert( document.body.nodeName ); // BODY
+    alert( document.body.tagName ); // BODY
+
+
+createElement vs innerHTML
+
+    .innerHtml
+    Удаляет все дочерние элементы, разбирает полученную строку и результат добавляет как дочерние элементы.
+
+    appendChild
+    Метод Node.appendChild() добавляет узел в конец списка дочерних узлов.
+
+querySelectorAll
+    Returns a list of the elements within the document (using depth-first pre-order traversal of the document's nodes)
+    that match the specified group of selectors. The object returned is a NodeList.
+
+</body>
+</html>

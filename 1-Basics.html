@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+                                    <!--meta-->
+
+    <!--    defines a title in the browser toolbar; provides a title for the page when it is added to favorites; displays a title for the page in search-engine results-->
+    <title>Syntax, head, links, grouping, tables, forms, embedded content</title>
+    <meta name="keywords" content="HTML, HTML5">
+    <meta name="description" content="Free Web tutorials on HTML and CSS">
+    <meta name="author" content="Fiery Fenix">
+    <!--Refresh document every 30 seconds-->
+    <meta http-equiv="refresh" content="30">
+    <!--Setting the viewport to make your website look good on all devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Specifies the character encoding for the HTML document-->
+    <meta charset="UTF-8">
+
+<!--content	  text	      Gives the value associated with the http-equiv or name attribute-->
+
+<!--                  content-type
+    http-equiv	    default-style            Provides an HTTP header for the information/value of the content attribute
+                        refresh	-->
+
+<!--              application-name
+                    author
+        name    description             Specifies a name for the metadata
+                    generator
+                    keywords
+                    viewport	-->
+
+
+
+
+    <!--Specify a default URL and a default target for all links on a page-->
+    <base href="https://www.w3schools.com/images/" target="_blank">
+
+<!--                  _blank
+                        _parent
+ target	             _self          Specifies the default target for all hyperlinks and forms in the page
+                        _top
+                        framename	-->
+
+
+
+
+
+                                    <!--links-->
+
+    <link rel="stylesheet" type="text/css" href="theme.css">
+<!-- sizes	  HeightxWidth
+                     any	               Specifies the size of the linked resource. Only for rel="icon"-->
+
+<!--          alternate
+                author
+                dns-prefetch
+                help
+                icon
+                license
+                next
+    rel	        pingback         Required. Specifies the relationship between the current document and the linked document
+                preconnect
+                prefetch
+                preload
+                prerender
+                prev
+                search
+                stylesheet	-->
+
+
+                                <!--script-->
+    <script>
+        document.getElementById("demo").innerHTML = "Hello JavaScript!";
+    </script>
+
+</head>
+<body>
+
+    <!--grouping-->
+
+            <fieldset>
+                <legend>Чекбоксы</legend>
+                <input type = "checkbox">первый чекбокс<br>
+                <input type = "checkbox">второй чекбокс<br>
+            </fieldset>
+
+
+            <DIV id="grouping" class="div-group">
+                <SPAN class="span-group">
+                    DIV is used to group a series of elements into a larger group. For example, you can group multiple
+                    paragraphs and headings or several elements on a form together using the DIV tag. DIV is used to offset
+                    a group of elements; that is, when you insert a DIV tag in a page, the DIV tag adds a paragraph break after its closing tag.
+                    DIV should not be used within a paragraph of text for this reason.
+
+
+                    DIV группирует блоки
+                </SPAN>
+                <SPAN class="span-group">
+                    SPAN is used within an element to group a part of it that is too small to capture with regular HTML tags.
+                    For example, you can use the SPAN tag to group a few sentences from within a paragraph, so you can perform
+                    actions that affect only that text. SPAN does not make formatting changes to the document as does the DIV tag,
+                    and is therefore better suited for use within paragraphs and in other elements where you do not want to introduce more white space.
+
+                    SPAN группирует строки
+                </SPAN>
+            </DIV>
+
+    <!--tables-->
+
+
+                    <table>
+                        <caption><b>Популярные смартфоны 2015</b></caption> заголовок таблицы
+                        <thead> хедер таблицы
+                            <tr>
+                                <th>Модель</th> <th>Компания</th> <th>Цена</th>
+                            </tr>
+                        </thead>
+                        <tbody> тело таблицы
+                            <tr>
+                                <td rowspan="2" >1</td> соединяет в этой ячейке две строки
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td colspan="2" >7</td> соединяет в этой ячейке
+                            </tr>
+                        <tbody>
+                        <tfoot> футер таблицы
+                            <tr>
+                                <th colspan="3">Информация по состоянию на 17 марта</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+    <!--forms-->
+
+                    <form method="post" autocomplete="off" action="http://localhost:8080/login.php">
+                        <fieldset>
+                            <legend>Введите данные:</legend>
+                            <label for="login">Логин:</label><br>
+                            <input type="text" name="login" id="login" /><br>
+                            <label for="password">Пароль:</label><br>
+                            <input type="password" name="password" id="password" /><br>
+                            <input type="submit" value="Авторизация">
+                        </fieldset>
+                    </form>
+                    novalidate: Отменяет встроенную проверку данных формы на корректность ввода.
+
+                    method: устанавливает метод отправки данных на сервер. Допустимы два значения: post и get.
+                                post позволяет передать данные на веб-сервер через специальные заголовки.
+                                get позволяет передать данные через строку запроса.
+
+                    action: устанавливает адрес, на который передаются данные формы
+
+                    enctype: устанавливает тип передаваемых данных.
+                                application/x-www-form-urlencoded: Вместо пробелов ставится +, символы вроде русских букв кодируются их шестнадцатеричными значениями кодировка отправляемых данных по умолчанию
+                                multipart/form-data: Данные не кодируются эта кодировка применяется при отправке файлов
+                                text/plain: Пробелы заменяются знаком +, буквы и другие символы не кодируются.
+
+    <!--embedded content-->
+
+            Встроенные элементы (инлайновые элементы, inline element) имеют такую же структуру, как и у блочных элементов,
+            за исключением отсутствия у встроенных элементов верха и низа.
+
+            Встроенный элемент занимает по ширине столько место, сколько ему необходимо для отображения своего контента.
+            Встроенный элемент не вставляет разрывы строки в своем начале и в своем конце.
+
+            Примеры встроенных элементов: <span></span>, <a href=""></a> и т.д.
+</body>
+</html>
