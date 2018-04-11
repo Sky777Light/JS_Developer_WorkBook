@@ -1,0 +1,6 @@
+(fucntion(){
+  return {
+    methods() {},
+    props
+  };
+})();
